@@ -35,3 +35,4 @@ po/*~
 rsconnect/
 # Configuration file
 config.R
+hsm_out
