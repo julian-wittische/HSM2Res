@@ -79,7 +79,7 @@ plot(bio_lux_m$wc2.1_30s_bio_1)
 
 ###### Elevation variables
 # Raw - high resolution
-DEM_50cm <- rast(paste0(ENVIPATH,"RastersLuxHighestResolution/LUX_DEM_50cm.grd"))
+#DEM_50cm <- rast(paste0(ENVIPATH,"RastersLuxHighestResolution/LUX_DEM_50cm.grd"))
 
 # Aspect
 asp <-
@@ -98,6 +98,12 @@ dem <- elevation_30s("Luxembourg", path=ENVIPATH, mask=TRUE)
 dem <- project(dem, "EPSG:2169")
 plot(dem)
 dem <- resample(dem, bio_lux_m, method="average")
+
+###### Grassland
+GRA <- rast(paste0(ENVIPATH,"RastersLuxHighestResolution/GRA_10m.grd"))
+GRA <- rast("W:/01_Services/SCR_Informations Patrimoine Naturel//_ENV_DATA_LUX/RastersLuxHighestResolution/GRA_10m.grd")
+
+
 
 ############ Essential stack ---- 
 rs_e <- rast(list(min_coldest = bio_lux_m$wc2.1_30s_bio_6,
